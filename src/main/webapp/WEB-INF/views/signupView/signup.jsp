@@ -5,7 +5,7 @@
 
 
 	<div class="text-center" style="background:white;">
-		<form class="form-horizontal" role="form" action = "<c:url value ='/signup/read'/>" 
+		<form class="form-horizontal" role="form" action = "<c:url value ='/signupView/read'/>" 
 			style="margin-left: 20%; padding-right: 40px; margin-bottom: 2%; margin-top: 2%;">
 			<h2>
 				플레이어 <span style="color: red">간편 회원가입</span>

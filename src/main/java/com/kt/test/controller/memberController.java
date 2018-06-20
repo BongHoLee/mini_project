@@ -31,10 +31,10 @@ public class memberController {
 	
 		if ("memberInfo".equalsIgnoreCase(action)) {
 			viewName = viewName + action;
-			resultMap = (Map<String, Object>) signupservice.getObject(paramMap);
+			//resultMap = (Map<String, Object>) signupservice.getObject(paramMap);
 		}else if ("memberList".equalsIgnoreCase(action)) {
 			viewName = viewName + action;
-			resultMap = (Map<String, Object>) signupservice.getObject(paramMap);
+			//resultMap = (Map<String, Object>) signupservice.getObject(paramMap);
 		}
 
 		modelandView.setViewName(viewName);

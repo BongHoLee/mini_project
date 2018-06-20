@@ -29,7 +29,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<c:url value = "/login" ></c:url>" ><span
 							class="glyphicon glyphicon-user"></span> Login</a></li>
-					<li><a href="<c:url value = "/signup" ></c:url>"><span
+					<li><a href="<c:url value = "/signupView/signup" ></c:url>"><span
 							class="glyphicon glyphicon-user"></span> Join</a></li>
 					<li><a href="<c:url value = "/noticeView/noticelist" ></c:url>"><span
 							class="glyphicon glyphicon-shopping-cart"></span> Notice</a></li>

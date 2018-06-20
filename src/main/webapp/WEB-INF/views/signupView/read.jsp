@@ -28,7 +28,7 @@
                                     <form role="form" method="POST" action="<c:url value='/member/edit' />">
 	                                    <div class="form-group">
 											<label>ID</label>
-											<p class="form-control-static">${resultMap.ID}</p>
+											<p class="form-control-static">${paramMap.ID}</p>
 	                                    </div>
 <!-- 	                                    <div class="form-group"> -->
 <!-- 											<label>PASSWORD</label> -->
@@ -36,15 +36,15 @@
 <!-- 	                                    </div> -->
 	                                    <div class="form-group">
 											<label>NAME</label>
-											<p class="form-control-static">${resultMap.NAME}</p>
+											<p class="form-control-static">${paramMap.NAME}</p>
 	                                    </div>
 	                                    <div class="form-group">
 											<label>EMAIL</label>
-											<p class="form-control-static">${resultMap.EMAIL}</p>
+											<p class="form-control-static">${paramMap.EMAIL}</p>
 	                                    </div>
 	                                    <div class="form-group">
 											<label>CELLPHONE</label>
-											<p class="form-control-static">${resultMap.TEL}</p>
+											<p class="form-control-static">${paramMap.TEL}</p>
 	                                    </div>
                                         <button type="submit" class="btn btn-default">Add Button</button>
 										<a href="<c:url value='/member/edit' />">Add With a Tag</a>
@@ -54,7 +54,6 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
 										<label>MEMBER_SEQ Static Control</label>
-										<p class="form-control-static">${resultMap.MEMBER_SEQ}</p>
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
