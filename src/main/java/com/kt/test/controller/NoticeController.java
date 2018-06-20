@@ -26,6 +26,7 @@ public class NoticeController {
 		List<Object> resultList = new ArrayList<Object>();
 		if("noticelist".equalsIgnoreCase(action)) {
 			viewName = viewName + action;
+			System.out.println("로그로그로그 : " + viewName);
 			//resultList = (List<Object>)service.getList(paramMap);
 			mv.addObject("resultList", resultList);
 			

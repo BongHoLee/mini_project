@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 
 
@@ -8,17 +9,17 @@
 <div class="container text-center" style="height:100%;">
   <div class="row" style="height : 100%;">
   
-  <!-- Àå¹Ù±¸´Ï ±¸¸Å form -->
+  <!-- ìž¥ë°”êµ¬ë‹ˆ êµ¬ë§¤ form -->
   <form action="#">
     <table class="table table-hover" style="width:100%; height:100%;">
       <thead>
         <tr>
-          <th>¹øÈ£</th>
-          <th>»óÇ° ¼±ÅÃ</th> 
-          <th>»óÇ°¸í</th>
-          <th>ÆÇ¸Å°¡</th>
-          <th>¼ö·®</th>
-          <th>ÁÖ¹®°ü¸®</th>
+          <th>ë²ˆí˜¸</th>
+          <th>ìƒí’ˆ ì„ íƒ</th> 
+          <th>ìƒí’ˆëª…</th>
+          <th>íŒë§¤ê°€</th>
+          <th>ìˆ˜ëŸ‰</th>
+          <th>ì£¼ë¬¸ê´€ë¦¬</th>
         </tr>
       </thead>
 
@@ -32,7 +33,7 @@
 				<td><label>${resultData.product_name}</label></td>
 				<td><label>${resultData.product_price}</label></td>
 				<td>1</td>
-				<td>»èÁ¦</td>
+				<td>ì‚­ì œ</td>
 	       </tr>
       </c:forEach>
         
@@ -41,9 +42,9 @@
      
     </table>
     <div class="container text-center">
-    <a class="btn btn-default" href="<c:url value='/noticeView/noticeinsert' /> ">±¸¸Å</a>
+    <a class="btn btn-default" href="<c:url value='/noticeView/noticeinsert' /> ">êµ¬ë§¤</a>
     </div>
-    </form>	<!-- Àå¹Ù±¸´Ï form end -->
+    </form>	<!-- ìž¥ë°”êµ¬ë‹ˆ form end -->
     
 
     

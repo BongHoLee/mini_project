@@ -1,36 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <br>
 <div class="container">
 <table class="table table-bordered">
     <thead> 
-        <caption> ±€æ≤±‚ </caption>
+        <caption> Í∏ÄÏì∞Í∏∞ </caption>
    </thead>
     <tbody>
         <form action=" <c:url value='/noticeView/insert'/>" method="post" encType="multiplart/form-data">
             <tr>
-                <th>¡¶∏Ò: </th>
-                <td><input type="text" placeholder="¡¶∏Ò¿ª ¿‘∑¬«œººø‰. " name="TITLE" class="form-control"/></td>
+                <th>Ï†úÎ™©: </th>
+                <td><input type="text" placeholder="Ï†úÎ™©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî. " name="TITLE" class="form-control"/></td>
             </tr>
             <tr>
-                <th>≥ªøÎ: </th>
-                <td><textarea cols="10" placeholder="≥ªøÎ¿ª ¿‘∑¬«œººø‰. " name="CONTENTS" class="form-control" style="height:300px;"></textarea></td>
+                <th>ÎÇ¥Ïö©: </th>
+                <td><textarea cols="10" placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî. " name="CONTENTS" class="form-control" style="height:300px;"></textarea></td>
             </tr>
             <tr>
-                <th>√∑∫Œ∆ƒ¿œ: </th>
-                <td><input type="text" placeholder="∆ƒ¿œ¿ª º±≈√«œººø‰. " name="FILENAME" class="form-control"/></td>
+                <th>Ï≤®Î∂ÄÌååÏùº: </th>
+                <td><input type="text" placeholder="ÌååÏùºÏùÑ ÏÑ†ÌÉùÌïòÏÑ∏Ïöî. " name="FILENAME" class="form-control"/></td>
             </tr>
             <tr>
-                <th>¿€º∫¿⁄ </th>
-                <td><input type="text" placeholder="¿€º∫¿⁄ ∏Ì¿ª ¿‘∑¬«œººø‰" name="AUTHOR" class="form-control"/></td>
+                <th>ÏûëÏÑ±Ïûê </th>
+                <td><input type="text" placeholder="ÏûëÏÑ±Ïûê Î™ÖÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî" name="AUTHOR" class="form-control"/></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="µÓ∑œ"  class="btn btn-default pull-right"/>
+                    <input type="submit" value="Îì±Î°ù"  class="btn btn-default pull-right"/>
                     <input type="button" value="reset" class="btn btn-default pull-left"/>
-                    <a class="btn btn-default pull-right" href="<c:url value='/noticeView/noticelist'/> ">±€ ∏Ò∑œ</a>
+                    <a class="btn btn-default pull-right" href="<c:url value='/noticeView/noticelist'/> ">Í∏Ä Î™©Î°ù</a>
                 </td>
             </tr>
     </form>    

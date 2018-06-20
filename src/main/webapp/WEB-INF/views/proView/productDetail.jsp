@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <div class="container">
 <div class="row">
@@ -11,7 +13,7 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
       </ol>
 
-      <!-- »óÇ° ÀÌ¹ÌÁö ³ÖÀ»°÷ -->
+      <!-- ìƒí’ˆ ì´ë¯¸ì§€ ë„£ì„ê³³ -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <img src="https://placehold.it/800x400?text=IMAGE" alt="Image">
@@ -30,7 +32,7 @@
         </div>
       </div>
 
-      <!-- »óÇ° ÀÌ¹ÌÁö ¿Þ/¿À¸¥ ¼±ÅÃ -->
+      <!-- ìƒí’ˆ ì´ë¯¸ì§€ ì™¼/ì˜¤ë¥¸ ì„ íƒ -->
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -46,19 +48,19 @@
   <form action="#">
   <div class="col-sm-4">
     <div class="well">
-	<label>»óÇ°¸í</label>
+	<label>ìƒí’ˆëª…</label>
     </div>
     <div class="well">
-       <label>°¡°Ý</label>
+       <label>ê°€ê²©</label>
     </div>
     <div class="well">
-       <label>ºê·£µå</label>
+       <label>ë¸Œëžœë“œ</label>
     </div>
     <div class="well">
-       <label>ºê·£µå</label>
+       <label>ë¸Œëžœë“œ</label>
     </div>
     <div class="well">
-       <label>ºê·£µå</label>
+       <label>ë¸Œëžœë“œ</label>
     </div>
   </div>
   
@@ -66,6 +68,6 @@
 <hr>
 </div>
     <div class="container text-center">
-    <input class="btn btn-default" type="submit" value="Àå¹Ù±¸´Ï ´ã±â">
+    <input class="btn btn-default" type="submit" value="ìž¥ë°”êµ¬ë‹ˆ ë‹´ê¸°">
     </div>
   </form>

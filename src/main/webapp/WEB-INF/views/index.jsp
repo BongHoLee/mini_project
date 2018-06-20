@@ -1,46 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
  
 	 <div class="jumbotron"
 		style="background-color: white; padding-top: 0; padding-bottom: 24px;">
 		<p
-			style="margin: 15px; font-weight: bold; border-bottom: 1px solid darkgray">ÃßÃµ
-			ºê·£µå</p>
+			style="margin: 15px; font-weight: bold; border-bottom: 1px solid darkgray">ì¶”ì²œ
+			ë¸Œëžœë“œ</p>
 		<div class="container text-center">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2 col-sm-4 col-xs-6">
 						<a href="#"><img src= "<c:url value = "/resources/images/nike5.jpg" ></c:url>" class="img-circle"
 							style="width: 100%" alt="Image"></a>
-						<p style="font-size: 15px;">³ªÀÌÅ°</p>
+						<p style="font-size: 15px;">ë‚˜ì´í‚¤</p>
 					</div>
 					<div class="col-md-2 col-sm-4 col-xs-6">
 						<a href="#"><img src="<c:url value = "/resources/images/gnrwks.jpg" ></c:url>" class="img-circle"
 							style="width: 100%" alt="Image"></a>
-						<p style="font-size: 15px;">Á¦³Ê·²¿÷½º</p>
+						<p style="font-size: 15px;">ì œë„ˆëŸ´ì›ìŠ¤</p>
 					</div>
 					<div class="col-md-2 col-sm-4 col-xs-6">
 						<a href="#"><img src="<c:url value = "/resources/images/champion.jpg" ></c:url>" class="img-circle"
 							style="width: 100%" alt="Image"></a>
-						<p style="font-size: 15px;">Ã¨ÇÇ¿Â</p>
+						<p style="font-size: 15px;">ì±”í”¼ì˜¨</p>
 					</div>
 					<div class="col-md-2 col-sm-4 col-xs-6">
 						<a href="#"><img src="<c:url value = "/resources/images/adidas.jpg" ></c:url>" class="img-circle"
 							style="width: 100%" alt="Image"></a>
-						<p style="font-size: 15px;">¾Æµð´Ù½º</p>
+						<p style="font-size: 15px;">ì•„ë””ë‹¤ìŠ¤</p>
 					</div>
 					<div class="col-md-2 col-sm-4 col-xs-6">
 						<a href="#"><img src="<c:url value = "/resources/images/obey.jpg" ></c:url>"  class="img-circle"
 							style="width: 100%" alt="Image"></a>
-						<p style="font-size: 15px;">¿Àº£ÀÌ</p>
+						<p style="font-size: 15px;">ì˜¤ë² ì´</p>
 					</div>
 					<div class="col-md-2 col-sm-4 col-xs-6">
 						<a href="#"><img src="<c:url value = "/resources/images/nuhabit.jpg" ></c:url>" class="img-circle"
 							style="width: 100%" alt="Image"></a>
-						<p style="font-size: 15px;">´ºÇØºø</p>
+						<p style="font-size: 15px;">ë‰´í•´ë¹—</p>
 					</div>
 				</div>
 			</div>
@@ -49,8 +50,8 @@
 	
 	 <div class="jumbotron" style="background-color: white; padding-top: 0; padding-bottom: 24px;">
 	<p
-		style="font-size: 21px; font-weight: bold; margin: 15px; border-bottom: 1px solid darkgray;">ÀÎ±â
-		»óÇ°</p>
+		style="font-size: 21px; font-weight: bold; margin: 15px; border-bottom: 1px solid darkgray;">ì¸ê¸°
+		ìƒí’ˆ</p>
 	<div class="container" >
 		<div class="row">
 	<div class="col-md-3 col-sm-4 col-xs-6">
@@ -61,7 +62,7 @@
 							style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						³ªÀÌÅ° ¿¡¾îÆ÷½º1 07 È­ÀÌÆ®<br>84,800¿ø
+						ë‚˜ì´í‚¤ ì—ì–´í¬ìŠ¤1 07 í™”ì´íŠ¸<br>84,800ì›
 					</div>
 				</div>
 			</div>
@@ -73,7 +74,7 @@
 							style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						³ªÀÌÅ° ¿¡¾î¸Æ½º 97 ·ÎÁîÇÎÅ©<br>209,000¿ø
+						ë‚˜ì´í‚¤ ì—ì–´ë§¥ìŠ¤ 97 ë¡œì¦ˆí•‘í¬<br>209,000ì›
 					</div>
 				</div>
 			</div>
@@ -85,7 +86,7 @@
 						class="img-responsive" style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						³ªÀÌÅ° FC ½º¿ì½Ã ÇÃ·¡±× È­ÀÌÆ®<br>37,000¿ø
+						ë‚˜ì´í‚¤ FC ìŠ¤ìš°ì‹œ í”Œëž˜ê·¸ í™”ì´íŠ¸<br>37,000ì›
 					</div>
 				</div>
 			</div>
@@ -97,7 +98,7 @@
 							class="img-responsive" style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						Æú·Î Å©·ç³Ø Æ÷ÄÏ ¹ÝÆÈÆ¼<br>39,000¿ø
+						í´ë¡œ í¬ë£¨ë„¥ í¬ì¼“ ë°˜íŒ”í‹°<br>39,000ì›
 					</div>
 				</div>
 			</div>
@@ -116,7 +117,7 @@
 							style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						³ªÀÌÅ° Á¶´ø 23/7 Á¡ÇÁ¸Ç<br>29,900¿ø
+						ë‚˜ì´í‚¤ ì¡°ë˜ 23/7 ì í”„ë§¨<br>29,900ì›
 					</div>
 				</div>
 			</div>
@@ -128,7 +129,7 @@
 							class="img-responsive" style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						¾Æµð´Ù½º ¿À¸®Áö³Î Æ®·¹Æ÷ÀÏ<br>32,000¿ø
+						ì•„ë””ë‹¤ìŠ¤ ì˜¤ë¦¬ì§€ë„ íŠ¸ë ˆí¬ì¼<br>32,000ì›
 					</div>
 				</div>
 			</div>
@@ -140,7 +141,7 @@
 							class="img-responsive" style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						Ã¨ÇÇ¿Â º£ÀÌ¹ö ÄÚÆ°<br>18,000¿ø
+						ì±”í”¼ì˜¨ ë² ì´ë²„ ì½”íŠ¼<br>18,000ì›
 					</div>
 				</div>
 			</div>
@@ -152,7 +153,7 @@
 							class="img-responsive" style="width: 100%" alt="Image"></a>
 					</div>
 					<div class="panel-footer">
-						Ä®ÇÏÆ® ·¹°Å½Ã ½ºÅÄ´Ùµå<br>68,900¿ø
+						ì¹¼í•˜íŠ¸ ë ˆê±°ì‹œ ìŠ¤íƒ ë‹¤ë“œ<br>68,900ì›
 					</div>
 				</div>
 			</div>

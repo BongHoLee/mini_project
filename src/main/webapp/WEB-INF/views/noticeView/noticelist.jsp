@@ -1,10 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
 
 
-<!--°Ô½ÃÆÇ ¸ñ·Ï -->
+<!--ê²Œì‹œíŒ ëª©ë¡ -->
 
 
 <br>
@@ -12,11 +13,11 @@
     <table class="table table-hover" style="width : 100%; height:100%;">
       <thead>
         <tr>
-          <th>¹øÈ£</th>
-          <th>ÀÛ¼ºÀÚ</th>
-          <th>Á¦¸ñ</th>
-          <th>³¯Â¥</th>
-          <th>Á¶È¸¼ö</th>
+          <th>ë²ˆí˜¸</th>
+          <th>ìž‘ì„±ìž</th>
+          <th>ì œëª©</th>
+          <th>ë‚ ì§œ</th>
+          <th>ì¡°íšŒìˆ˜</th>
         </tr>
       </thead>
 
@@ -41,8 +42,8 @@
 
     </table>
     
-          <!--±Û¾²±â ¹× ÆäÀÌÁö ÀÌµ¿-->
-    <a class="btn btn-default" href="<c:url value='/noticeView/noticeinsert' /> ">±Û¾²±â</a>
+          <!--ê¸€ì“°ê¸° ë° íŽ˜ì´ì§€ ì´ë™-->
+    <a class="btn btn-default" href="<c:url value='/noticeView/noticeinsert' /> ">ê¸€ì“°ê¸°</a>
     <div class="text-center">
       <ul class="pagination">
         <li><a href="#">1</a></li>
