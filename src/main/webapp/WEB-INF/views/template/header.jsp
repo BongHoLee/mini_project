@@ -39,6 +39,7 @@
     <!-- Custom Theme JavaScript -->
 	<script type="text/javascript" src="<c:url value='/resources/js/sb-admin-2.js' />"></script>
 	<script src="<c:url value ='/resources/javascript/jquery-3.3.1.js'/>"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href="<c:url value ='/resources/CSS/bootstrap.signup.css'/>"
 	rel="stylesheet" id="bootstrap-css">
 <script src="<c:url value ='/resources/javascript/bootstrap.signup1.js'/>"></script>
@@ -96,9 +97,9 @@
 	    evt.currentTarget.className += " active";
 	}
 	
-	
-	
+
 </script>
+
 <style>
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 .navbar {
