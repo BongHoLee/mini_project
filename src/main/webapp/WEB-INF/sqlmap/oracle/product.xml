@@ -6,7 +6,7 @@
     
 <mapper namespace="product">
 	<select id="list" resultType="Map" parameterType="Map" timeout="10">
-		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, PROD_IMG FROM product, brand WHERE product.BRAND_NUM=brand.BRAND_NUM 
+		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, PROD_IMG, PRICE, PSIZE FROM product, brand WHERE product.BRAND_NUM=brand.BRAND_NUM 
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">

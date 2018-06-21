@@ -56,25 +56,32 @@
 	<div class="container" >
 		<div class="row">
 		</c:if>
-	
+		
+		<form action="<c:url value='/proView/productInfo' /> ">
 		<div class="col-md-3 col-sm-4 col-xs-6">
 				<div class="panel panel-primary">
-					<div class="panel-heading">NIKE</div>
+					<input type="hidden" name="BRAND_NAME" value="${resultData.BRAND_NAME}"/>
+					<div class="panel-heading">${resultData.BRAND_NAME}</div>
 					<div class="panel-body">
-						<a href="#"><img src="<c:url value = "/resources/images/nike1.jpg" ></c:url>" class="img-responsive"
-							style="width: 100%" alt="Image"></a>
+					<input type="image" src="<c:url value = "/resources/images/${resultData.PROD_IMG}" ></c:url>" alt="Submit Form" style="width:100%" class="img-responsive" />
 					</div>
 					<div class="panel-footer">
-						나이키 에어포스1 07 화이트<br>84,800원
+					<input type="hidden" name="PROD_IMG" value="${resultData.PROD_IMG}" />
+					<input type="hidden" name="PROD_NAME" value="${resultData.PROD_NAME}"/>
+					<input type="hidden" name="PRICE" value="${resultData.PRICE}"/>
+					<input type="hidden" name="PSIZE" value="${resultData.PSIZE}"/>
+						${resultData.PROD_NAME}<br>${resultData.PRICE}원
 					</div>
 				</div>
 			</div>
+		</form>
 			
 	<c:if test="${(loop.index+1)%4 == 0 }">
 		</div>
 	</div>
-	</c:if>
 	<br>
+	</c:if>
+	
 
 	
 	</c:forEach>
