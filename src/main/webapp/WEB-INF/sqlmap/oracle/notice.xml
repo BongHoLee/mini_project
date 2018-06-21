@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="notice">
+
+	<!-- 모든 공지사항 모두 출력  -->	
+	<select id="list" resultType="Map" parameterType="Map">
+	    select * from Notice
+
+		<![CDATA[
+		where 1 = 1
+		]]>
+		order by Notice_num
+	</select>
+
+	<!-- 특정 id가 작성한 공지사항만 출력 -->	
+<!-- 	<select id="read" resultType="Map" parameterType="Map"> -->
+<!-- 		select * FROM notice WHERE ID = #{ID} -->
+<!-- 	</select> -->
+	
+	
+	<!-- 특정 id가 작성한 공지사항만 출력 -->	
+	<select id="read" resultType="Map" parameterType="Map">
+	
+	
+		select * FROM notice WHERE NOTICE_NUM = #{NOTICE_NUM}
+		
+		
+	</select>
+
+
+	<!-- db에 공지사항 데이터  입력  -->	
+	<insert id="insert" parameterType="Map">
+<!-- 		INSERT INTO notice (Notice_num, Title, content, ID) VALUES(notice_seq.nextval,#{Title}, #{Content}, #{ID}) -->
+		INSERT INTO notice (Notice_num, Title, content, ID) VALUES(#{NOTICE_NUM}, #{TITLE}, #{CONTENTS}, 'aaa')
+	</insert>
+
+
+	<!-- db에서 특정 번호의 공지사항 삭제   -->	
+	<delete id="delete" parameterType="Map">
+		delete from Notice
+		where Notice_num = #{Notice_num}
+	</delete>
+</mapper>

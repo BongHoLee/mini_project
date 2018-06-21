@@ -98,11 +98,6 @@
 	
 	
 	
-	
-	
-	
-	
-	
 </script>
 <style>
 /* Remove the navbar's default rounded borders and increase the bottom margin */

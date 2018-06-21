@@ -4,7 +4,6 @@
     <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <br>
-<div class="container">
 <table class="table table-bordered">
     <thead> 
         <caption> 글쓰기 </caption>

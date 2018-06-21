@@ -10,7 +10,7 @@
 
 <br>
 <div class="text-center" style="height:100%;">
-    <table class="table table-hover" style="width : 100%; height:100%;">
+    <table class="table table-hover" id="dataTables-example" style="width : 100%; height:100%;">
       <thead>
         <tr>
           <th>번호</th>
@@ -21,23 +21,22 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody class="noticeClass">
        <c:forEach items="${resultList}" var="resultData" varStatus="loop">
+	   
+	   
 	        <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-				<td>${resultData.NO}dsf</td>
-				<td>${resultData.TITLE}sdf</td>
-				<td>${resultData.AUTHOR}sdf</td>
-				<td>${resultData.DATE}sdf</td>
-				<td>${resultData.HIT}sdf</td>
+				<td>
+				<a href="<c:url value="/noticeView/noticeread?NOTICE_NUM=${resultData.NOTICE_NUM}" />">${loop.index+1}</a>
+				</td>
+				<td>${resultData.ID}</td>
+				<td>${resultData.TITLE}</td>
+				<td>${loop.index+1}</td> 
+ 				<td>${loop.index+1}</td>
 	       </tr>
+	       </a>
       </c:forEach>
-      	        <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-				<td>${resultData.NO}dsf</td>
-				<td>${resultData.TITLE}sdf</td>
-				<td>${resultData.AUTHOR}sdf</td>
-				<td>${resultData.DATE}sdf</td>
-				<td>${resultData.HIT}sdf</td>
-	       </tr>
+      	
       </tbody>
 
     </table>
