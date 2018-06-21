@@ -12,7 +12,9 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
       </ol>
-
+	  <c:if test="${resultMap.resultPage == 'read'}">
+	  <h2>상품 추가가 완료되었습니다!</h2>
+	  </c:if>
       <!-- 상품 이미지 넣을곳 -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
