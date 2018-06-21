@@ -2,6 +2,8 @@ package com.kt.test.service;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +12,6 @@ import com.kt.test.dao.NoticeDao;
 @Service
 public class NoticeService {
 
-	
-	
-	
 	@Autowired
 	private NoticeDao noticedao;
 	
@@ -41,6 +40,14 @@ public class NoticeService {
 		Object result;
 		
 		result = noticedao.getList("notice.read", paramMap);
+		
+		return result;
+	}
+	public Object modifyObject(String sqlMapID, Object paramMap) {
+
+		Object result;
+		
+		result = noticedao.modifyObject("notice.modify", paramMap);
 		
 		return result;
 	}

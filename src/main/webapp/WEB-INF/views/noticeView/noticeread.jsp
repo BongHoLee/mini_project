@@ -32,9 +32,9 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="등록"  class="btn btn-default pull-right"/>
-                    <input type="button" value="수정" class="btn btn-default pull-left"/>
+<!--                     <input type="submit" value="등록"  class="btn btn-default pull-right"/> -->
                     <a class="btn btn-default pull-right" href="<c:url value='/noticeView/noticelist'/> ">글 목록</a>
+                    <a class="btn btn-default pull-left" href="<c:url value='/noticeView/noticemodify?NOTICE_NUM = ${resultData.NOTICE_NUM}'/> ">수정</a>
                 </td>
             </tr>
       </c:forEach>

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,11 +44,12 @@ public class NoticeController {
 			mv.addObject("resultList", resultList);
 			
 		}else if("insert".equalsIgnoreCase(action)) {
-			viewName = viewName + "noticeread";
+			viewName = viewName + "noticelist";
 			//resultList = (List<Object>)service.insertNotice(paramMap);
 		
 			//공지사항을 입력하면 데이터베이스에 추가됨
 			result = service.getObject("sqlMapId", paramMap);
+			resultList = (List<Object>)service.getRead(paramMap);
 			
 			mv.addObject("resultList", resultList);
 			
@@ -55,8 +58,6 @@ public class NoticeController {
 			//글쓰기 하고 들어오는 페이지 
 			viewName = viewName + action;
 		
-		
-		
 		}else if("noticeread".equalsIgnoreCase(action)) {
 			
 			//작성한 글을 보는 페이지로 
@@ -64,9 +65,22 @@ public class NoticeController {
 			
 			resultList = (List<Object>)service.getRead(paramMap);
 			mv.addObject("resultList", resultList);
+			
+	}else if("noticemodify".equalsIgnoreCase(action)) {
 		
-		}
+		//수정하는 페이지 
+		viewName = viewName + "noticelist";
 		
+		
+		//notice_num을 가지고 select하여 resultList로 화면 출력; 
+		
+		
+		
+		result = service.modifyObject("sqlMapID", paramMap);
+		resultList = (List<Object>)service.getRead(paramMap);
+		
+		mv.addObject("resultList", resultList);
+	}
 		
 		mv.setViewName(viewName);
 		return mv;

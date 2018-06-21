@@ -25,9 +25,7 @@
 	<!-- 특정 id가 작성한 공지사항만 출력 -->	
 	<select id="read" resultType="Map" parameterType="Map">
 	
-	
 		select * FROM notice WHERE NOTICE_NUM = #{NOTICE_NUM}
-		
 		
 	</select>
 
@@ -37,6 +35,23 @@
 <!-- 		INSERT INTO notice (Notice_num, Title, content, ID) VALUES(notice_seq.nextval,#{Title}, #{Content}, #{ID}) -->
 		INSERT INTO notice (Notice_num, Title, content, ID, REG_DATE, HITS) VALUES(#{NOTICE_NUM}, #{TITLE}, #{CONTENTS}, 'aaa', sysdate, '1')
 	</insert>
+	
+<!-- 	<insert id="modify" parameterType="Map"> -->
+<!-- 		INSERT INTO notice  -->
+<!-- 		(Notice_num, Title, content, ID, REG_DATE, HITS) -->
+<!-- 		 VALUES(#{NOTICE_NUM}, #{TITLE}, #{CONTENTS}, 'aaa', sysdate, '1') -->
+<!-- 	</insert> -->
+	
+	<update id="modify" parameterType="Map">
+		UPDATE notice 
+		SET 
+		 Title = #{TITLE}, 
+		 content = #{CONTENTS}
+		WHERE 
+			NOTICE_NUM = #{NOTICE_NUM}
+	</update>
+	
+	
 
 
 	<!-- db에서 특정 번호의 공지사항 삭제   -->	
