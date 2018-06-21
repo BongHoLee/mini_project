@@ -26,8 +26,8 @@ public class ProductController {
 		if("productInfo".equalsIgnoreCase(action)) {
 			//cartlist : DB에 접속해서 장바구니 목록을 가져온다. SELECT ALL
 			viewName = viewName + "productDetail";
-			//resultList = (List<Object>)service.getList("SQL",paramMap);
-			mv.addObject("resultList", resultList);
+			System.out.println("결과 맵 : " + paramMap.toString());
+			mv.addObject("resultMap", paramMap);
 			
 		}
 		mv.setViewName(viewName);
