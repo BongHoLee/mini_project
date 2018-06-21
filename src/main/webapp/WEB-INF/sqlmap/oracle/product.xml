@@ -6,11 +6,11 @@
     
 <mapper namespace="product">
 	<select id="list" resultType="Map" parameterType="Map" timeout="10">
-		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, PROD_IMG, PRICE, PSIZE FROM product, brand WHERE product.BRAND_NUM=brand.BRAND_NUM 
+		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, product.CATE_COD, CATEGORY.CATE_NAME, PROD_IMG, PRICE, PSIZE FROM product, brand, category WHERE product.BRAND_NUM=brand.BRAND_NUM AND product.CATE_COD=category.CATE_COD
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
-		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, PROD_IMG, PRICE, PSIZE FROM product, brand  WHERE PROD_NUM=#{PROD_NUM} AND product.BRAND_NUM=brand.BRAND_NUM
+		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, PROD_IMG, PRICE, product.CATE_COD, CATEGORY.CATE_NAME, PSIZE FROM product, brand, category  WHERE PROD_NUM=#{PROD_NUM} AND product.BRAND_NUM=brand.BRAND_NUM AND product.CATE_COD=category.CATE_COD
 	</select>
 
 	<insert id="insert" parameterType="Map">

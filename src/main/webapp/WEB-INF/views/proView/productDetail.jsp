@@ -53,11 +53,17 @@
     <div class="well">
 	<label>${resultMap.BRAND_NAME}</label>
     </div>
+        
+     <label style="color:red;">카테고리</label>
+    <div class="well">
+    <label>${resultMap.CATE_NAME}</label>   
+    </div>
     
     <label style="color:red;">상품명</label>
     <div class="well">
     <label>${resultMap.PROD_NAME}</label>   
     </div>
+
     
     <label style="color:red;">가격</label>
     <div class="well">

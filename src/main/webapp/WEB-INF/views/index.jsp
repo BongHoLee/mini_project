@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 
  
 	 <div class="jumbotron"
@@ -67,6 +69,7 @@
 					</div>
 					<div class="panel-footer">
 					<input type="hidden" name="PROD_IMG" value="${resultData.PROD_IMG}" />
+					<input type="hidden" name="CATE_NAME" value="${resultData.CATE_NAME}" />
 					<input type="hidden" name="PROD_NAME" value="${resultData.PROD_NAME}"/>
 					<input type="hidden" name="PRICE" value="${resultData.PRICE}"/>
 					<input type="hidden" name="PSIZE" value="${resultData.PSIZE}"/>
@@ -75,8 +78,7 @@
 				</div>
 			</div>
 		</form>
-			
-	<c:if test="${(loop.index+1)%4 == 0 }">
+	<c:if test=" ${fn:length(resultList)==(loop.index+1)} or ${(loop.index+1)%4 == 0}">
 		</div>
 	</div>
 	<br>
@@ -86,76 +88,9 @@
 	
 	</c:forEach>
 	<!-- 상품 목록 끝 그다음 시작 -->
-	
-	
-	
-	<div class="container">
-		<div class="row">
-		
-		<div class="col-md-3 col-sm-4 col-xs-6">
-				<div class="panel panel-primary">
-					<div class="panel-heading">NIKE</div>
-					<div class="panel-body">
-						<a href="#"><img src="<c:url value = "/resources/images/nike4.jpg" ></c:url>" class="img-responsive"
-							style="width: 100%" alt="Image"></a>
-					</div>
-					<div class="panel-footer">
-						나이키 조던 23/7 점프맨<br>29,900원
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-3 col-sm-4 col-xs-6">
-				<div class="panel panel-danger">
-					<div class="panel-heading">ADIDAS</div>
-					<div class="panel-body">
-						<a href="#"><img src="<c:url value = "/resources/images/adidas1.jpg" ></c:url>" 
-							class="img-responsive" style="width: 100%" alt="Image"></a>
-					</div>
-					<div class="panel-footer">
-						아디다스 오리지널 트레포일<br>32,000원
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-4 col-xs-6">
-				<div class="panel panel-success">
-					<div class="panel-heading">CHAMPION</div>
-					<div class="panel-body">
-						<a href="#"><img src="<c:url value = "/resources/images/champion1.jpg" ></c:url>" 
-							class="img-responsive" style="width: 100%" alt="Image"></a>
-					</div>
-					<div class="panel-footer">
-						챔피온 베이버 코튼<br>18,000원
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-4 col-xs-6">
-				<div class="panel panel-yellow">
-					<div class="panel-heading">CARHARTT</div>
-					<div class="panel-body">
-						<a href="#"><img src="<c:url value = "/resources/images/carhartt1.jpg" ></c:url>" 
-							class="img-responsive" style="width: 100%" alt="Image"></a>
-					</div>
-					<div class="panel-footer">
-						칼하트 레거시 스탠다드<br>68,900원
-					</div>
-				</div>
-			</div>
-			</div>
-			
-		</div>
-	</div>
 	<br>
 	<br>
-	<div class="text-center">
-		<ul class="pagination" style="margin: 0px;">
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-		</ul>
-	</div>
+	
 	<br>
 	
 
