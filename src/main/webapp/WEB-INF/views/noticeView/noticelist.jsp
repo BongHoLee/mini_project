@@ -31,7 +31,7 @@
 				</td>
 				<td>${resultData.ID}</td>
 				<td>${resultData.TITLE}</td>
-				<td>${loop.index+1}</td> 
+				<td>${resultData.REG_DATE}</td> 
  				<td>${loop.index+1}</td>
 	       </tr>
 	       </a>

@@ -35,7 +35,7 @@
 	<!-- db에 공지사항 데이터  입력  -->	
 	<insert id="insert" parameterType="Map">
 <!-- 		INSERT INTO notice (Notice_num, Title, content, ID) VALUES(notice_seq.nextval,#{Title}, #{Content}, #{ID}) -->
-		INSERT INTO notice (Notice_num, Title, content, ID) VALUES(#{NOTICE_NUM}, #{TITLE}, #{CONTENTS}, 'aaa')
+		INSERT INTO notice (Notice_num, Title, content, ID, REG_DATE, HITS) VALUES(#{NOTICE_NUM}, #{TITLE}, #{CONTENTS}, 'aaa', sysdate, '1')
 	</insert>
 
 
