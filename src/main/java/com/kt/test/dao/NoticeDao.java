@@ -2,6 +2,8 @@ package com.kt.test.dao;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,5 +42,12 @@ public class NoticeDao {
 		Object result = sqlSession.delete(sqlMapId, dataMap);
 		return result;
 	}
+	
+	public Object modifyObject(String sqlMapId, Object dataMap) {
+		Object result = sqlSession.update(sqlMapId, dataMap);
+		return result;
+	}
+	
+	
 
 }

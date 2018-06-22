@@ -26,11 +26,11 @@
 	   
 	   
 	        <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-				<td>
-				<a href="<c:url value="/noticeView/noticeread?NOTICE_NUM=${resultData.NOTICE_NUM}" />">${loop.index+1}</a>
-				</td>
+				<td>${loop.index+1}</td>
 				<td>${resultData.ID}</td>
-				<td>${resultData.TITLE}</td>
+				<td>
+				<a href="<c:url value="/noticeView/noticeread?NOTICE_NUM=${resultData.NOTICE_NUM}" />">	${resultData.TITLE}</a>
+				</td>
 				<td>${resultData.REG_DATE}</td> 
  				<td>${loop.index+1}</td>
 	       </tr>
