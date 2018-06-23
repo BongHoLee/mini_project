@@ -10,7 +10,7 @@
   <div class="row" style="height : 100%;">
   
   <!-- 장바구니 구매 form -->
-  <form action="#">
+  <form action="<c:url value='/cartView/buy'/> ">
     <table class="table table-hover" style="width:100%; height:100%;">
       <thead>
         <tr>
@@ -29,8 +29,8 @@
        <c:forEach items="${resultList}" var="resultData" varStatus="loop">
 	        <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}"style="vertical-align:middle;">
 				<td style="vertical-align:middle;"><label>${(loop.index+1)}</label></td>
-				<td style="vertical-align:middle;"><input type="checkbox" name="check_${(loop.index)}"/></td>
-				<td style="vertical-align:middle;"><img src="<c:url value='/resources/images/${resultData.PROD_IMG}'/> " alt="" border=3 height=100 width=100></img><label>${resultData.PROD_NAME}</label></td>
+				<td style="vertical-align:middle;"><input type="checkbox" name="BUY_NUM_${(loop.index+1)}" value="${resultData.BUY_NUM }"/></td>
+				<td style="vertical-align:middle;"><img src="<c:url value='/resources/images/${resultData.PROD_IMG}' /> " alt="" border=3 height=100 width=100></img><label>${resultData.PROD_NAME}</label></td>
 				<td style="vertical-align:middle;"><label>${resultData.PRICE}</label></td>
 				<td style="vertical-align:middle;">1</td>
 				<td style="vertical-align:middle;"><a href="<c:url value='/cartView/cartDelete?BUY_NUM=${resultData.BUY_NUM}'/> "> 삭제</a></td>
@@ -42,7 +42,7 @@
      
     </table>
     <div class="text-center">
-    <a class="btn btn-default" href="<c:url value='/noticeView/noticeinsert' /> "> 구매</a>
+    <input type="submit" value="구매">
     </div>
     </form>	<!-- 장바구니 form end -->
     

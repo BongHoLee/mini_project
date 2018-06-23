@@ -61,6 +61,7 @@ public class memberController {
 			resultMap = (Map)service.getObject("member.read", paramMap);
 			viewName = viewName + action;
 		}else if ("memberList".equalsIgnoreCase(action)) {
+			
 			resultList = (List)service.getList("member.list", paramMap);
 			viewName = viewName + action;
 		}else if("update".equalsIgnoreCase(action)) {

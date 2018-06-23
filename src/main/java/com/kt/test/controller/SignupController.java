@@ -55,7 +55,7 @@ public class SignupController {
 			//null이라면 없다는 의미이므로 삽입, 존재한다면 중복되므로 에러 창
 			//위의 내용은 service에서 처리(비즈니스로직이므로) service에서 처리
 			
-			
+			System.out.println("맵 크기 : " + paramMap.size()+ " 맵 요소 : " + paramMap.toString());
 			//정상 삽입일시(중복이 아닐시) result = 1
 			//중복 ID일시 result = 0;
 			result = signupService.getObject("sqlMapId", paramMap);

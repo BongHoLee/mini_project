@@ -42,6 +42,8 @@ public class CartController {
 		}
 		authMap.put("ROLE", auth);
 		mv.addObject("authMap", authMap);
+		
+		//지금 이게 문제임. 얘를 따로 빼면 될거같기도 함
 		paramMap.put("ID", util.getName());
 		if("cartlist".equalsIgnoreCase(action)) {
 			//cartlist : DB에 접속해서 장바구니 목록을 가져온다. SELECT ALL
@@ -72,6 +74,20 @@ public class CartController {
 				resultList = (List<Object>)service.getList("cart.list",paramMap);
 				mv.addObject("resultList", resultList);
 			}
+		}else if("buy".equalsIgnoreCase(action)) {
+			viewName = viewName + "cartlist";
+			
+			System.out.println("맵 크기 : " + paramMap.size() + "맵 내용 : " + paramMap.toString());
+			//구매 목록을 담을 List
+			List<Object> buyList = new ArrayList<>();
+			for(String key : paramMap.keySet()) {
+				String buynum = (String)paramMap.get(key);
+				Map<String, Object> map = new HashMap<>();
+				map.put("BUY_NUM", buynum);
+				buyList.add(map);
+			}
+			System.out.println("리스트 크기 : " + buyList.size());
+			
 		}
 		
 		mv.setViewName(viewName);
