@@ -17,10 +17,10 @@
 					Already registered? <a href="#">Sign In</a>
 				</p>
 			</form>
-			<form class="login-form">
-				<input type="text" placeholder="아이디를 입력하세요" /> <input type="password"
-					placeholder="비밀번호를 입력하세요" />
-				<button>로그인</button>
+			<form role="form" action="<c:url value='/j_spring_security_check' />" method="POST">
+				<input type="text" name="email" placeholder="아이디를 입력하세요" /> 
+				<input type="password" name="password" placeholder="비밀번호를 입력하세요" />
+				<button type="submit">로그인</button>
 				<p class="message">
 					회원이 아니세요? <a href="/signup/">회원가입하기</a>
 				</p>

@@ -123,7 +123,7 @@ $("#imgInp").change(function() {
 	</select>
     </div>
      <div class="form-group">
-    <input class="form-control" type="submit" value="장바구니 담기">
+    <input class="form-control" type="submit" value="상품 추가">
     </div>
   
 </div>

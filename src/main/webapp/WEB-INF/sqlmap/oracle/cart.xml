@@ -4,9 +4,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="product">
+<mapper namespace="cart">
 	<select id="list" resultType="Map" parameterType="Map" timeout="10">
-		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, product.CATE_COD, CATEGORY.CATE_NAME, PROD_IMG, PRICE, PSIZE FROM product, brand, category WHERE product.BRAND_NUM=brand.BRAND_NUM AND product.CATE_COD=category.CATE_COD
+		select cart.BUY_NUM, cart.ID, cart.PROD_NUM, product.PROD_NAME, product.PSIZE, product.PRICE, product.PROD_IMG FROM cart, product, member WHERE cart.ID=#{ID} AND cart.PROD_NUM=product.PROD_NUM AND cart.ID=member.ID
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
@@ -22,7 +22,7 @@
 	</select>
 
 	<insert id="insert" parameterType="Map">
-	    INSERT INTO PRODUCT (PROD_NUM, PROD_NAME, PSIZE, STOCK, BRAND_NUM, CATE_COD, PROD_IMG, PRICE) VALUES(#{PROD_NUM}, #{PROD_NAME}, #{PSIZE}, 20, #{BRAND_NUM}, #{CATE_COD}, #{PROD_IMG}, #{PRICE})
+	    INSERT INTO CART(BUY_NUM, ID, PROD_NUM) VALUES(#{BUY_NUM}, #{ID}, #{PROD_NUM}) 
 	</insert>
 
 	<update id="update" parameterType="Map">
@@ -61,7 +61,7 @@
 	</insert>
 
 	<delete id="delete" parameterType="Map">
-		delete from CIP_ORGANIZATION
-		where ORGANIZATION_SEQ = #{ORGANIZATION_SEQ}
+		delete from CART
+		where BUY_NUM = #{BUY_NUM}
 	</delete>
 </mapper>

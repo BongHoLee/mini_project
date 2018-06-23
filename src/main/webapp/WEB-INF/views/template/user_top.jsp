@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
+		<div class="container-fluid" style="padding-left:0px; padding-right:0px;">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#myNavbar">
@@ -27,12 +27,35 @@
 				
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<c:url value = "/login" ></c:url>" ><span
-							class="glyphicon glyphicon-user"></span> Login</a></li>
-					<li><a href="<c:url value = "/signupView/signup" ></c:url>"><span
-							class="glyphicon glyphicon-user"></span> Join</a></li>
-					<li><a href="<c:url value = "/noticeView/noticelist" ></c:url>"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Notice</a></li>
+				<c:choose>
+					<c:when test="${pageContext.request.userPrincipal.name == null}">
+						<li><a href="<c:url value = "/login" ></c:url>" ><span class="glyphicon glyphicon-user"></span> Login</a></li>
+						<li><a href="<c:url value = "/signupView/signup" ></c:url>"><span class="glyphicon glyphicon-log-in"></span> Join</a></li>
+					</c:when>
+					
+					<c:otherwise>
+						<c:if test="${(authMap.ROLE == 'ADMIN') || (authMap.ROLE == 'SYSTEM')}">
+							<li><a href="<c:url value = "/proView/productInsert" ></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span> 상품 추가</a></li>
+						</c:if>				
+					<li><a href="<c:url value = "/noticeView/noticelist" ></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span> 게시판</a></li>
+					<c:set var='principalName' value='${pageContext.request.userPrincipal.name}' />
+                    <li> <c:url var='logoutUrl' value='/j_spring_security_logout'></c:url><li>
+                   	<li>
+						<a type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" >
+							<span class="glyphicon glyphicon-user"></span>${principalName}
+						</a>
+						
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ 							<li><a href="<c:url value='/memberView/memberInfo' />">내 정보</a></li>
+ 							<li><a href="<c:url value='/cartView/cartlist' />">장바구니</a></li>
+ 						</ul>
+ 						
+ 					</li>
+                    <li><a href="${logoutUrl}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+					</c:otherwise>
+				</c:choose>
+
+
 				</ul>
 			</div>
 		</div>

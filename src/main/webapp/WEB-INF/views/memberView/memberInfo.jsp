@@ -6,7 +6,7 @@
 
 <!--     <div id="wrapper"> -->
 
-<div id="page-wrapper">
+<div id="page-wrapper" calss="col-sm-10" style="margin-left:30px;">
 	<div class="row">
 		<div class="col-sm-10">
 			<h2 class="page-header text-center">회원정보</h2>
@@ -20,29 +20,28 @@
 				<div class="panel-heading">정보 확인</div>
 				<div class="panel-body text-center">
 					<div class="row text-center">
-						<div class="col-sm-6">
+						<div class="col-sm-6" style="margin-left:190px;">
 							<form role="form" method="POST"
 								action="<c:url value='/member/edit' />">
 								<div class="form-group">
 									<label>ID</label>
-									<%-- 											<p class="form-control-static">${resultMap.ID}</p> --%>
-									<p class="form-control-static">아이디다</p>
+									<input type="hidden" name="ID" value="${resultMap.ID}">
+									<p class="form-control-static">${resultMap.ID}</p>
 								</div>
-								<!-- 	                                    <div class="form-group"> -->
-								<!-- 											<label>PASSWORD</label> -->
-								<%-- 											<p class="form-control-static">${resultMap.PASSWORD}</p> --%>
-								<!-- 	                                    </div> -->
+								
 								<div class="form-group">
 									<label>NAME</label>
-									<%-- 											<p class="form-control-static">${resultMap.NAME}</p> --%>
-									<p class="form-control-static">이름이다</p>
+									<input type="hidden" name="NAME" value="${resultMap.NAME}">
+									<p class="form-control-static">${resultMap.NAME}</p>
 								</div>
 								<div class="form-group">
 									<label>EMAIL</label>
+									<input type="hidden" name="NAME" value="${resultMap.EMAIL}">
 									<p class="form-control-static">${resultMap.EMAIL}</p>
 								</div>
 								<div class="form-group">
 									<label>CELLPHONE</label>
+									<input type="hidden" name="NAME" value="${resultMap.TEL}">
 									<p class="form-control-static">${resultMap.TEL}</p>
 								</div>
 								<button type="submit" class="btn btn-default">수정</button>

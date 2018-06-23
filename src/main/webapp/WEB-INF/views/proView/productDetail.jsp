@@ -47,40 +47,50 @@
     </div>
   </div>
   
-  <form action="#">
+  <form action="<c:url value='/cartView/cartinsert'/> " method="POST">
   <div class="col-sm-4">
+  <input type="hidden" name="PROD_NUM" value="${resultMap.PROD_NUM }">
+  
   <label style="color:red;">브랜드</label>
     <div class="well">
 	<label>${resultMap.BRAND_NAME}</label>
+	<input type="hidden" name="BRAND_NAME" value="${resultMap.BRAND_NAME}">
     </div>
         
      <label style="color:red;">카테고리</label>
     <div class="well">
+    <input type="hidden" name="CATE_NAME" value="${resultMap.CATE_NAME}">
     <label>${resultMap.CATE_NAME}</label>   
     </div>
     
     <label style="color:red;">상품명</label>
     <div class="well">
     <label>${resultMap.PROD_NAME}</label>   
+    <input type="hidden" name="PROD_NAME" value="${resultMap.PROD_NAME}">
     </div>
 
     
     <label style="color:red;">가격</label>
     <div class="well">
        <label>${resultMap.PRICE}</label>
+       <input type="hidden" name="PRICE" value="${resultMap.PRICE}">
     </div>
     
     <label style="color:red;">사이즈</label>
     <div class="well">
        <label>${resultMap.PSIZE}</label>
+       <input type="hidden" name="PSIZE" value="${resultMap.PSIZE}">
     </div>
-  </div>
   
+  	  <c:if test="${resultMap.resultPage != 'read'}">
+     <div class="form-group">
+    <input class="form-control" type="submit" value="장바구니 담기">
+    </div>
+	  </c:if>
 </div>
 <hr>
 <br>
 </div>
-    <div class="text-center">
-    <input class="btn btn-default" type="submit" value="장바구니 담기">
-    </div>
+
+
   </form>

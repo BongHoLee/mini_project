@@ -122,8 +122,13 @@ table {
 
 tr th {
 	text-align: center;
+	vertical-align: middle;
 }
 
+td {
+  text-align: center;
+  vertical-align: middle;
+}
 /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 .row.content {
 	height: 100%
@@ -131,8 +136,43 @@ tr th {
 
 /* Set gray background color and 100% height */
 .sidenav {
-	background-color: #f1f1f1;
+	background-color: #f1f1f1; 
 	height: 100%;
+	/* background-color: #111; */
+    overflow-x: hidden;
+	
+}
+.sidenav a:hover, .dropdown-btn:hover {
+    color: black;
+}
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+.sidenav a, .dropdown-btn {
+
+        padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
 }
 
 /* Set black background color, white text and some padding */

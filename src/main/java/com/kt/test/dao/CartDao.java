@@ -5,23 +5,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class CartDao {
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
 	//
 	public Object getList(String sqlMapId, Object dataMap) {
 		//Select 후 list에 담아서 return
-		List<Object> resultList = new ArrayList<>();
-		Map<String, Object> resultMap1 = new HashMap<>();
-		Map<String, Object> resultMap2 = new HashMap<>();
-		resultMap1.put("product_name", "NIKE");
-		resultMap2.put("product_name", "ADDIDAS");
-		resultMap1.put("product_price", "199,000");
-		resultMap2.put("product_price", "299,000");
-		resultList.add(resultMap1);
-		resultList.add(resultMap2);
-		return resultList;
+		
+		return sqlSession.selectList(sqlMapId, dataMap);
+	}
+	
+	public Object insertObject(String sqlMapId, Object dataMap) {
+		return sqlSession.insert(sqlMapId, dataMap);
+	}
+	
+	public Object deleteObject(String sqlMapId, Object dataMap) {
+		return sqlSession.delete(sqlMapId, dataMap);
 	}
 
 }

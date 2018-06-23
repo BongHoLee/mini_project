@@ -1,9 +1,13 @@
 package com.kt.test.dao;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
 import com.kt.test.util.CommonUtil;
@@ -25,4 +29,6 @@ public class ProductDao {
 	public Object getObject(String sqlMapId, Object dataMap) {
 		return sqlSession.selectOne(sqlMapId, dataMap);
 	}
+
+
 }

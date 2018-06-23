@@ -68,6 +68,7 @@
 					<input type="image" src="<c:url value = "/resources/images/${resultData.PROD_IMG}" ></c:url>" alt="Submit Form" style="width:100%" class="img-responsive" />
 					</div>
 					<div class="panel-footer">
+					<input type="hidden" name="PROD_NUM" value="${resultData.PROD_NUM }"/>
 					<input type="hidden" name="PROD_IMG" value="${resultData.PROD_IMG}" />
 					<input type="hidden" name="CATE_NAME" value="${resultData.CATE_NAME}" />
 					<input type="hidden" name="PROD_NAME" value="${resultData.PROD_NAME}"/>

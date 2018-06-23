@@ -7,37 +7,50 @@
     
     
     <div class="col-sm-2 sidenav">
-
-
-	<div class="tab" style = "padding-bottom : 0px;">
-		<button class="tablinks" onclick="openCity(event, 'category')">품목</button>
-		<button class="tablinks" onclick="openCity(event, 'brand')">브랜드</button>
-	</div>
-
-<!-- 	<div id="category" class="tabcontent"> -->
-<!-- 	</div> -->
-
-	<div id="brand" class="tabcontent">
-	<form>
-		<label>브랜드명 검색</label>
-		<input type = "text" size="18"
-				placeholder="search brand"> </input>
-	</form>
-	</div>
+    <br><br>
+    <a href="#section3"><strong>상품 선택</strong></a><br>
 
 	
 
-
-	<ul class="nav nav-pills nav-stacked">
-<!--         <li class="active"><a href="#section1">Home</a></li> -->
-        <li><a href="#section2"><strong>BEST &nbsp;&nbsp;</strong><h7>인기</h7></a></li>
-        <li><a href="#section3"><strong>TOP &nbsp;&nbsp;</strong><h7>상의</h7></a></li>
-        <li><a href="#section3"><strong>BOTTOM &nbsp;&nbsp;</strong><h7>하의</h7></a></li>
-        <li><a href="#section3"><strong>OUTER &nbsp;&nbsp;</strong><h7>아우터</h7></a></li>
-        <li><a href="#section3"><strong>ACCESSORY &nbsp;&nbsp;</strong><h7>장신구</h7></a></li>
-        <li><a href="#section3"><strong>SHOES &nbsp;&nbsp;</strong><h7>신발</h7></a></li>
-        <li><a href="#section3"><strong>BAG &nbsp;&nbsp;</strong><h7>가방</h7></a></li>
-      </ul><br>
+<button class="dropdown-btn"><strong>Category</strong> <i class="fa fa-caret-down"></i></button>
+  		<div class="dropdown-container">
+    		<a href="<c:url value='/proView/productView?CATE_COD=C001&page=category'/> "><strong>TOP &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?CATE_COD=C002&page=category'/> "><strong>BOTTOM &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?CATE_COD=C003&page=category'/> "><strong>OUTER &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?CATE_COD=C004&page=category'/> "><strong>ACCESSORY &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?CATE_COD=C005&page=category'/> "><strong>BAG &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?CATE_COD=C006&page=category'/> "><strong>SHOES &nbsp;&nbsp;</strong></a>
+  		</div>
+  		<br>
+ <button class="dropdown-btn"><strong>Brand</strong> <i class="fa fa-caret-down"></i></button>
+	  	<div class="dropdown-container">
+    		<a href="<c:url value='/proView/productView?BRAND_NUM=B001&page=brand'/> "><strong>NIKE &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?BRAND_NUM=B002&page=brand'/> "><strong>ADIDAS &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?BRAND_NUM=B003&page=brand'/> "><strong>NEW BALANCE &nbsp;&nbsp;</strong></a>
+    		<a href="<c:url value='/proView/productView?BRAND_NUM=B004&page=brand'/> "><strong>OBEY &nbsp;&nbsp;</strong></a>
+  
+  		</div>
+  		<br><br><br>
+      
     </div>
     
+    <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+    
     <div class="col-sm-10">
+    

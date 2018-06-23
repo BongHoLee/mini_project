@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kt.test.service.SignupService;
+import com.kt.test.util.CommonUtil;
 
 @Controller
 @RequestMapping(value = "/signupView")
@@ -22,6 +23,9 @@ public class SignupController {
 	@Autowired
 	private SignupService signupService;
 
+	@Autowired
+	private CommonUtil util;
+
 	@RequestMapping(value = "/{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
 			ModelAndView modelandView) {
@@ -29,6 +33,20 @@ public class SignupController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 		Object result = null;
+		
+		//사용자의 권한을 확인함
+		Map<String, Object> authMap = new HashMap<>();
+		String auth = "";
+		if(util.hasRole("ROLE_USER")) {
+			auth = "USER";
+		}else if(util.hasRole("ROLE_ADMIN")) {
+			auth = "ADMIN";
+		}else if(util.hasRole("ROLE_SYSTEM")) {
+			auth = "SYSTEM";
+		}
+		authMap.put("ROLE", auth);
+		modelandView.addObject("authMap", authMap);
+		
 	
 		if ("read".equalsIgnoreCase(action)) {
 			//회원가입 form에 입력된 정보를 데이터베이스에 삽입
