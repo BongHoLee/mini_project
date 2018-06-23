@@ -36,7 +36,10 @@
 					<c:otherwise>
 						<c:if test="${(authMap.ROLE == 'ADMIN') || (authMap.ROLE == 'SYSTEM')}">
 							<li><a href="<c:url value = "/proView/productInsert" ></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span> 상품 추가</a></li>
-						</c:if>				
+						</c:if>
+						<c:if test="${(authMap.ROLE == 'SYSTEM')}">
+							<li><a href="<c:url value = "/memberView/memberList" ></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span> 사용자 관리</a></li>
+						</c:if>					
 					<li><a href="<c:url value = "/noticeView/noticelist" ></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span> 게시판</a></li>
 					<c:set var='principalName' value='${pageContext.request.userPrincipal.name}' />
                     <li> <c:url var='logoutUrl' value='/j_spring_security_logout'></c:url><li>

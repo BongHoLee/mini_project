@@ -6,23 +6,7 @@
     
 <mapper namespace="member">
 	<select id="list" resultType="Map" parameterType="Map">
-	    select 
-			MEMBER_SEQ <!-- 회원_SEQ -->
-			, MEMBER_ID <!-- 회원 ID -->
-			, PASSWORD <!-- 암호 -->
-			, NAME <!-- 명칭 -->
-			, EMAIL <!-- EMAIL -->
-			, CELLPHONE <!-- 휴대폰번호 -->
-			, ORGANIZATION_SEQ <!-- 조직 일련번호 -->
-			, REGISTER_SEQ <!-- 등록자SEQ -->
-			, REGISTRY_DATE <!-- 등록일자 -->
-			, MODIFIER_SEQ <!-- 수정자_SEQ -->
-			, MODIFY_DATE <!-- 수정일자 -->
-		from CIP_MEMBER
-		<![CDATA[
-		where 1 = 1
-		]]>
-		order by NAME
+	    select ID, NAME, EMAIL, TEL, member.AUTH_NUM, authority.AUTH_NAME FROM member, authority WHERE member.AUTH_NUM=authority.AUTH_NUM
 	</select>
 
 	<select id="check" resultType="Map" parameterType="Map">
@@ -41,4 +25,12 @@
 		delete from CIP_MEMBER
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</delete>
+	
+	<update id="updateUser" parameterType="Map">
+		UPDATE member SET auth_num='200' WHERE ID=#{ID} 
+	</update>
+	
+	<update id="updateManager" parameterType="Map">
+		UPDATE member SET auth_num='300' WHERE ID=#{ID} 
+	</update>
 </mapper>

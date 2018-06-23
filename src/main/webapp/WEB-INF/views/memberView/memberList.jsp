@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<div id="page-wrapper">
+<div id="page-wrapper" style="margin-left: 0px;">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">List</h1>
+			<h1 class="page-header">User List</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -24,13 +24,12 @@
 							id="dataTables-example">
 							<thead>
 								<tr>
-									<th><input type="checkbox" id="selecctall" /></th>
-									<th>MEMBER_ID</th>
+									<th>ID</th>
 									<th>NAME</th>
-									<th>CELLPHONE</th>
+									<th>TEL</th>
 									<th>EMAIL</th>
-									<th>Update</th>
-									<th>Delete</th>
+									<th>AUTHORITY</th>
+									<th>UPDATE</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -38,20 +37,41 @@
 									varStatus="loop">
 									<tr
 										class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-										<td><input type="checkbox" class="checkbox"
-											name="MEMBER_SEQ" value="${resultData.MEMBER_SEQ}" /></td>
-										<td><a
-											href="<c:url value="/member/read?MEMBER_SEQ=${resultData.MEMBER_SEQ}" />">
-												${resultData.MEMBER_ID}</a></td>
+
+										<td><strong><a
+											href="<c:url value="/memberView/memberInfo?ID=${resultData.ID}" />">
+												${resultData.ID}</a></strong></td>
 										<td>${resultData.NAME}</td>
-										<td>${resultData.CELLPHONE}</td>
+										<td>${resultData.TEL}</td>
 										<td>${resultData.EMAIL}</td>
-										<td><a
-											href="<c:url value="/member/update?MEMBER_SEQ=${resultData.MEMBER_SEQ}&forwardView=/member/edit" />">
-												Update</a></td>
-										<td><a
-											href="<c:url value="/member/delete?MEMBER_SEQ=${resultData.MEMBER_SEQ}&forwardView=/member/list" />">
-												Delete</a></td>
+										<td><c:choose>
+											<c:when test="${resultData.AUTH_NUM == '100' }">
+												<strong>관리자</strong>
+											</c:when>
+											<c:when test="${resultData.AUTH_NUM == '200' }">
+												매니저
+											</c:when>
+											<c:when test="${resultData.AUTH_NUM == '300' }">
+												일반 유저
+											</c:when>
+											</c:choose></td>
+										<td>
+											<c:choose>
+											<c:when test="${resultData.AUTH_NUM == '100' }">
+												<p>KING</p>
+											</c:when>
+											<c:when test="${resultData.AUTH_NUM == '200' }">
+												<a href="<c:url value="/memberView/update?ID=${resultData.ID}&act=MANAGER" />">
+												해고
+												</a>
+											</c:when>
+											<c:when test="${resultData.AUTH_NUM == '300' }">
+											<a href="<c:url value="/memberView/update?ID=${resultData.ID}&act=USER" />">
+												매니저 위임
+												</a>
+											</c:when>
+											</c:choose>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>

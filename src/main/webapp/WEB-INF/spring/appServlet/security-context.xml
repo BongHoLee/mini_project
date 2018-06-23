@@ -21,17 +21,10 @@
 		
 		<intercept-url pattern="/cartView/cartlist" access="hasAnyRole('ROLE_ADMIN','ROLE_SYSTEM','ROLE_USER')"/>
 		
-    	<intercept-url pattern="/member/list" access="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
-    	<intercept-url pattern="/member/read" access="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
-    	<intercept-url pattern="/member/*" access="hasAnyRole('ROLE_ADMIN', 'ROLE_SYSTEM')"/>
+    	<intercept-url pattern="/memberView/memberInfo" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
+    	<intercept-url pattern="/memberView/memberList" access="hasAnyRole('ROLE_SYSTEM')"/>
     	
-      	<intercept-url pattern="/organization/list" access="permitAll()"/>
-    	<intercept-url pattern="/organization/read" access="hasAnyRole('ROLE_USER', 'ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
-    	<intercept-url pattern="/organization/*" access="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN', 'ROLE_SYSTEM')"/>
-    	
-    	<intercept-url pattern="/commonCode/list" access="hasAnyRole('ROLE_ADMIN', 'ROLE_SYSTEM')"/>
-    	<intercept-url pattern="/commonCode/read" access="hasAnyRole('ROLE_ADMIN', 'ROLE_SYSTEM')"/>
-    	<intercept-url pattern="/commonCode/*" access="hasAnyRole('ROLE_SYSTEM')"/>
+      	
 
 		<!-- 로그인 -->
 		<form-login login-page="/login" 

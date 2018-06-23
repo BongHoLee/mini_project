@@ -12,5 +12,12 @@ public class MemberDao {
 	public Object getObject(String sqlMapId, Object dataMap) {
 		return sqlSession.selectOne(sqlMapId, dataMap);
 	}
-
+	
+	public Object getList(String sqlMapId, Object dataMap) {
+		return sqlSession.selectList(sqlMapId, dataMap);
+	}
+	
+	public Object updateObject(String sqlMapId, Object dataMap) {
+		return sqlSession.update(sqlMapId, dataMap);
+	}
 }

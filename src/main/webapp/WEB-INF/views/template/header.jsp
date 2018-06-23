@@ -45,7 +45,7 @@
 <script src="<c:url value ='/resources/javascript/bootstrap.signup1.js'/>"></script>
 <script src="<c:url value ='/resources//javascript/jquery-1.11.1.signup1.js'/>"></script>
 
-<script>
+<!-- <script>
 	$(document).ready(function() {
 		var re_id = /^[a-z0-9_-]{10,30}$/; // 아이디 검사식
 		var re_pw = /^[a-z0-9_-]{8,20}$/; // 비밀번호 검사식
@@ -98,7 +98,7 @@
 	}
 	
 
-</script>
+</script> -->
 
 <style>
 /* Remove the navbar's default rounded borders and increase the bottom margin */

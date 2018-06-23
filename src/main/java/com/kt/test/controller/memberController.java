@@ -1,7 +1,9 @@
 package com.kt.test.controller;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,7 @@ public class memberController {
 		String viewName = "/memberView/";
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		//사용자의 권한을 확인함
+		List<Object> resultList = new ArrayList<>();
 		Map<String, Object> authMap = new HashMap<>();
 		String auth = "";
 		if(util.hasRole("ROLE_USER")) {
@@ -58,11 +61,19 @@ public class memberController {
 			resultMap = (Map)service.getObject("member.read", paramMap);
 			viewName = viewName + action;
 		}else if ("memberList".equalsIgnoreCase(action)) {
+			resultList = (List)service.getList("member.list", paramMap);
 			viewName = viewName + action;
+		}else if("update".equalsIgnoreCase(action)) {
+			int resultNum = (Integer)service.updateObject("sqlMapId", paramMap);
+			if(resultNum == 1) {
+				resultList = (List)service.getList("member.list", paramMap);
+				viewName = viewName + "memberList";
+			}
+			
 		}
 
 		modelandView.setViewName(viewName);
-
+		modelandView.addObject("resultList", resultList);
 		modelandView.addObject("resultMap", resultMap);
 		
 		return modelandView;
