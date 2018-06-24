@@ -91,15 +91,14 @@
 							<tbody>
 								<c:forEach items="${resultList}" var="resultData"
 									varStatus="loop">
-									<tr
-										class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-										<td><label>${(loop.index+1)}</label></td>
-										<td><input type="checkbox" name="check_${(loop.index)}" /></td>
-										<td><label>${resultData.product_name}</label></td>
-										<td><label>${resultData.product_price}</label></td>
-										<td>1</td>
-										<td>삭제</td>
-									</tr>
+	        <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}"style="vertical-align:middle;">
+				<td style="vertical-align:middle;"><label>${(loop.index+1)}</label></td>
+				<td style="vertical-align:middle;"><img src="<c:url value='/resources/images/${resultData.PROD_IMG}' /> " alt="" border=3 height=100 width=100></img><label>${resultData.PROD_NAME}</label></td>
+				<td style="vertical-align:middle;">${resultData.BUY_DATE}</td>
+				<td style="vertical-align:middle;"><label>${resultData.PRICE}</label></td>
+				<td style="vertical-align:middle;">준비중</td>
+				
+	       </tr>
 								</c:forEach>
 
 							</tbody>

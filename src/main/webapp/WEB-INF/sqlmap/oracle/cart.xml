@@ -6,11 +6,19 @@
     
 <mapper namespace="cart">
 	<select id="list" resultType="Map" parameterType="Map" timeout="10">
-		select cart.BUY_NUM, cart.ID, cart.PROD_NUM, product.PROD_NAME, product.PSIZE, product.PRICE, product.PROD_IMG FROM cart, product, member WHERE cart.ID=#{ID} AND cart.PROD_NUM=product.PROD_NUM AND cart.ID=member.ID
+		select cart.BUY_NUM, cart.ID, cart.PROD_NUM, product.PROD_NAME, product.PSIZE, product.PRICE, product.PROD_IMG FROM cart, product, member WHERE cart.ID=#{ID} AND cart.PROD_NUM=product.PROD_NUM AND cart.ID=member.ID AND cart.ck_buy='1'
+	</select>
+	
+	<select id="buy_all" resultType="Map" parameterType="Map" timeout="10">
+		select buy_history.PAY_NUM, buy_history.BUY_DATE, cart.BUY_NUM, cart.ID, cart.PROD_NUM, product.PROD_NAME, product.PSIZE, product.PRICE, product.PROD_IMG FROM cart, product,buy_history, member WHERE cart.ID=#{ID} AND cart.PROD_NUM=product.PROD_NUM AND cart.ID=member.ID AND cart.ck_buy='0' AND buy_history.BUY_NUM=cart.BUY_NUM
+	</select>
+	
+	<select id="buy_list" resultType="Map" parameterType="Map" timeout="10">
+		select buy_history.PAY_NUM, buy_history.BUY_DATE, cart.BUY_NUM, cart.ID, cart.PROD_NUM, product.PROD_NAME, product.PSIZE, product.PRICE, product.PROD_IMG FROM cart, product,buy_history, member WHERE cart.ID=#{ID} AND cart.PROD_NUM=product.PROD_NUM AND cart.ID=member.ID AND cart.ck_buy='0' AND buy_history.BUY_NUM=cart.BUY_NUM
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
-		select PROD_NUM, PROD_NAME, product.BRAND_NUM, brand.BRAND_NAME, PROD_IMG, PRICE, product.CATE_COD, CATEGORY.CATE_NAME, PSIZE FROM product, brand, category  WHERE PROD_NUM=#{PROD_NUM} AND product.BRAND_NUM=brand.BRAND_NUM AND product.CATE_COD=category.CATE_COD
+		select cart.BUY_NUM, cart.ID, cart.PROD_NUM, product.PROD_NAME, product.PSIZE, product.PRICE, product.PROD_IMG FROM cart, product, member WHERE cart.PROD_NUM=product.PROD_NUM AND cart.ID=member.ID AND cart.BUY_NUM=#{BUY_NUM}
 	</select>
 	
 	<select id="selectCate" resultType="Map" parameterType="Map">
@@ -22,15 +30,18 @@
 	</select>
 
 	<insert id="insert" parameterType="Map">
-	    INSERT INTO CART(BUY_NUM, ID, PROD_NUM) VALUES(#{BUY_NUM}, #{ID}, #{PROD_NUM}) 
+	    INSERT INTO CART(BUY_NUM, ID, PROD_NUM, CK_BUY) VALUES(#{BUY_NUM}, #{ID}, #{PROD_NUM}, '1') 
 	</insert>
+	
+	<insert id="buy_insert" parameterType="Map">
+	    INSERT INTO BUY_HISTORY(PAY_NUM, BUY_NUM, PRICE, PAY_WAY, BUY_DATE) VALUES(#{PAY_NUM}, #{BUY_NUM}, #{PRICE}, 'CARD', sysdate) 
+	</insert>
+	
+	
 
 	<update id="update" parameterType="Map">
-	    UPDATE CIP_ORGANIZATION SET
-			NAME = #{NAME} 	<!-- 명칭 -->
-			, TELEPHONE = #{TELEPHONE} 	<!-- 대표 전화번호 -->
-			, ORDER_NUMBER = #{ORDER_NUMBER} 	<!-- 정렬순서 -->
-			, PARENT_ORGANIZATION_SEQ = #{PARENT_ORGANIZATION_SEQ} 	<!-- 상위 조직 일련번호 -->
+	    UPDATE cart SET CK_BUY='0' WHERE BUY_NUM=#{BUY_NUM}
+
 	</update>
 
 	<insert id="merge" parameterType="Map">

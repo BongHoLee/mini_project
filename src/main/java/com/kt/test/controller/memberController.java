@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kt.test.service.CartService;
 import com.kt.test.service.MemberService;
 import com.kt.test.service.SignupService;
 import com.kt.test.util.CommonUtil;
@@ -26,6 +27,9 @@ public class memberController {
 
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private CartService cartService;
 	
 	@Autowired
 	private CommonUtil util;
@@ -59,6 +63,7 @@ public class memberController {
 			//검색하려는 ID를 넣어준다.
 			paramMap.put("ID", userName);
 			resultMap = (Map)service.getObject("member.read", paramMap);
+			resultList = (List)cartService.selectBuyList("cart.buy_all", paramMap);
 			viewName = viewName + action;
 		}else if ("memberList".equalsIgnoreCase(action)) {
 			

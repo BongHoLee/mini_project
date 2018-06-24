@@ -44,10 +44,11 @@ public class CartController {
 		mv.addObject("authMap", authMap);
 		
 		//지금 이게 문제임. 얘를 따로 빼면 될거같기도 함
-		paramMap.put("ID", util.getName());
+		
 		if("cartlist".equalsIgnoreCase(action)) {
 			//cartlist : DB에 접속해서 장바구니 목록을 가져온다. SELECT ALL
 			viewName = viewName + action;
+			paramMap.put("ID", util.getName());
 			resultList = (List<Object>)service.getList("cart.list",paramMap);
 			mv.addObject("resultList", resultList);
 			
@@ -55,11 +56,13 @@ public class CartController {
 			//장바구니에 추가하기 위해 username이 필요
 			//insert후 장바구니 목록을 보여준다.
 			viewName = viewName + "cartlist";
+			paramMap.put("ID", util.getName());
 			
 			int resultNum = (Integer)service.insertObject("cart.insert", paramMap);
 			
 			if(resultNum == 1) {
 				//삽입 성공시 장바구니 목록을 불러와서 뿌려준다.
+				paramMap.put("ID", util.getName());
 				resultList = (List<Object>)service.getList("cart.list",paramMap);
 				mv.addObject("resultList", resultList);
 				
@@ -71,11 +74,15 @@ public class CartController {
 			int resultNum = (Integer)service.deleteObject("cart.delete", paramMap);
 			if(resultNum == 1) {
 				//삭제 성공시 장바구니 목록을 불러와서 뿌려준다.
+				paramMap.put("ID", util.getName());
 				resultList = (List<Object>)service.getList("cart.list",paramMap);
 				mv.addObject("resultList", resultList);
 			}
 		}else if("buy".equalsIgnoreCase(action)) {
-			viewName = viewName + "cartlist";
+			
+			//장바구니 목록 선택 후 구매시 호출되는 메소드
+			viewName = viewName + "buylist";
+			
 			
 			System.out.println("맵 크기 : " + paramMap.size() + "맵 내용 : " + paramMap.toString());
 			//구매 목록을 담을 List
@@ -86,7 +93,15 @@ public class CartController {
 				map.put("BUY_NUM", buynum);
 				buyList.add(map);
 			}
+			
 			System.out.println("리스트 크기 : " + buyList.size());
+			//제대로 담겨서 들어온다.
+			//이제 이 LIST를 service에 넘겨주자.
+			
+			resultList = (List)service.insertList("sqlMapId", buyList);
+			mv.addObject("resultList", resultList);
+			
+			paramMap.put("ID", util.getName());
 			
 		}
 		
